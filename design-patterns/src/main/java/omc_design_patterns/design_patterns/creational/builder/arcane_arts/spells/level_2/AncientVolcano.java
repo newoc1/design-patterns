@@ -28,7 +28,7 @@ public class AncientVolcano implements MajorSpell {
 
 	@Override
 	public int getDamage() {
-		return 200;
+		return 200 *powerLevel;
 	}
 
 	@Override

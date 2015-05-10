@@ -27,7 +27,7 @@ public class ArcaneBarrage implements MajorSpell {
 
 	@Override
 	public int getDamage() {
-		return 75;
+		return 75 * powerLevel;
 	}
 
 	@Override
