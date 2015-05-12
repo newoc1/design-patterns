@@ -3,11 +3,15 @@ package omc_design_patterns.design_patterns.creational.builder.arcane_arts.spell
 import java.util.HashSet;
 import java.util.Set;
 
+import omc_design_patterns.design_patterns.creational.builder.actors.enemies.Enemy;
+import omc_design_patterns.design_patterns.creational.builder.actors.wizards.Wizard;
 import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spells.DamageType;
+import omc_design_patterns.design_patterns.creational.builder.attributes.LifeLeech;
 
-public class DeadMinorSpell implements MinorSpell{
+public class DeadMinorSpell extends MinorSpell{
 	private Set<DamageType> damageTypes;
-	public DeadMinorSpell(){
+	public DeadMinorSpell(Wizard wizard){
+		super(wizard);
 		damageTypes = new HashSet<>();
 		damageTypes.add(DamageType.PHYSICAL);
 	}
@@ -24,6 +28,13 @@ public class DeadMinorSpell implements MinorSpell{
 	public int getHealthLeech() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	
+	@Override
+	public void hit(Enemy enemy) {
+		LifeLeech lifeLeech = enemy.hitByMinorSpell(this);
+		wizard.gainHealth(lifeLeech.getLifeLeech());
+		
 	}
 
 }

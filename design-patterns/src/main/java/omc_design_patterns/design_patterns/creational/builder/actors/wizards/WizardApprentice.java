@@ -4,6 +4,8 @@ import java.util.Random;
 
 import omc_design_patterns.design_patterns.creational.builder.actors.enemies.Enemy;
 import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spell_builders.SpellBuilder;
+import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spell_builders.level_1.MinorSpellBuilder;
+import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spell_builders.level_2.MajorSpellBuilder;
 import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spells.level_1.MinorSpell;
 import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spells.level_2.MajorSpell;
 import omc_design_patterns.design_patterns.creational.builder.attributes.LifeLeech;
@@ -28,27 +30,7 @@ public class WizardApprentice implements Wizard {
 		return health;
 	}
 
-	@Override
-	public void hitEnemyWithSpell(Enemy enemy, SpellBuilder spellBuilder) {
-		if (spellBuilder.getSpellLevel() > 2) {
-			System.out
-					.println("Wizard is not high enough level to use these spells.");
-		}
-		Integer spellChain = rand.nextInt(8);
-		spellBuilder.beginIncantation();
-		for (int i = spellChain; i > 0; i--) {
-			chooseRandomElement(spellBuilder);
-		}
 
-		if (spellBuilder.getSpellLevel() == 1) {
-			LifeLeech lifeLeech = enemy
-					.hitByMinorSpell((MinorSpell) spellBuilder.endIncantation());
-			gainHealth(lifeLeech.getLifeLeech());
-
-		} else {
-			enemy.hitByMajorSpell((MajorSpell) spellBuilder.endIncantation());
-		}
-	}
 
 	private void chooseRandomElement(SpellBuilder spellBuilder) {
 		Integer element = rand.nextInt(4);
@@ -73,6 +55,35 @@ public class WizardApprentice implements Wizard {
 
 		System.out.println("wizard leeched " + health + " health!");
 		health += health;
+	}
+
+	@Override
+	public <T extends SpellBuilder> T buildSpell(T spellBuilder) {
+		if (spellBuilder.getSpellLevel() > 2) {
+			System.out
+					.println("Wizard is not high enough level to use these spells.");
+		}
+		Integer spellChain = rand.nextInt(8);
+		spellBuilder.beginIncantation();
+		for (int i = spellChain; i > 0; i--) {
+			chooseRandomElement(spellBuilder);
+		}
+		return spellBuilder;
+	}
+
+	@Override
+	public void castSpells(Enemy enemy) {
+		Integer randInt = rand.nextInt(2);
+		if(randInt == 0){
+
+			MinorSpellBuilder spellBuilder = buildSpell(new MinorSpellBuilder());
+			spellBuilder.castMinorSpell(this).hit(enemy);
+		}
+		else{
+			MajorSpellBuilder spellBuilder = buildSpell(new MajorSpellBuilder());
+			spellBuilder.castMajorSpell().hit(enemy);
+		}
+		
 	}
 
 }

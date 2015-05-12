@@ -17,6 +17,4 @@ public interface SpellBuilder {
 	void castAir();
 	
 	void castEarth();
-	
-	Spell endIncantation();
 }

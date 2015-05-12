@@ -1,5 +1,6 @@
 package omc_design_patterns.design_patterns.creational.builder.arcane_arts.spell_builders.level_1;
 
+import omc_design_patterns.design_patterns.creational.builder.actors.wizards.Wizard;
 import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spell_builders.SpellBuilder;
 import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spells.level_1.ArcaneMissile;
 import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spells.level_1.DeadMinorSpell;
@@ -65,29 +66,29 @@ public class MinorSpellBuilder implements SpellBuilder {
 		
 	}
 
-	@Override
-	public MinorSpell endIncantation() {
+
+	public MinorSpell castMinorSpell(Wizard wizard) {
 		System.out.println();
 		MinorSpell minorSpell;
 		if(fire && air && !water && !earth){
 			System.out.println("wizard cast arcane missile!");
-			minorSpell = new ArcaneMissile();
+			minorSpell = new ArcaneMissile(wizard);
 		}
 		else if(fire && earth && !water && !air){
 			System.out.println("wizard cast meteor!");
-			minorSpell = new Meteor();
+			minorSpell = new Meteor(wizard);
 		}
 		else if(fire && water && !earth && !air){
 			System.out.println("wizard cast steam blast!");
-			minorSpell = new SteamBlast();
+			minorSpell = new SteamBlast(wizard);
 		}
 		else if(water && air && !earth && !fire){
 			System.out.println("wizard cast water whip!");
-			minorSpell = new WaterWhip();
+			minorSpell = new WaterWhip(wizard);
 		}
 		else{
 			System.out.println("wizard cast a dead minor spell.");
-			minorSpell = new DeadMinorSpell();
+			minorSpell = new DeadMinorSpell(wizard);
 		}
 		return minorSpell;
 	}
@@ -96,7 +97,5 @@ public class MinorSpellBuilder implements SpellBuilder {
 	public int getSpellLevel() {
 		return 1;
 	}
-	
-
 
 }

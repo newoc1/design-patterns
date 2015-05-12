@@ -3,11 +3,15 @@ package omc_design_patterns.design_patterns.creational.builder.arcane_arts.spell
 import java.util.HashSet;
 import java.util.Set;
 
+import omc_design_patterns.design_patterns.creational.builder.actors.enemies.Enemy;
+import omc_design_patterns.design_patterns.creational.builder.actors.wizards.Wizard;
 import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spells.DamageType;
+import omc_design_patterns.design_patterns.creational.builder.attributes.LifeLeech;
 
-public class Meteor implements MinorSpell{
+public class Meteor extends MinorSpell{
 	private Set<DamageType> damageTypes;
-	public Meteor(){
+	public Meteor(Wizard wizard){
+		super(wizard);
 		damageTypes = new HashSet<>();
 		damageTypes.add(DamageType.FIRE);
 		damageTypes.add(DamageType.EARTH);
@@ -25,5 +29,11 @@ public class Meteor implements MinorSpell{
 	@Override
 	public int getHealthLeech() {
 		return 10;
+	}
+	
+	@Override
+	public void hit(Enemy enemy) {
+		LifeLeech lifeLeech = enemy.hitByMinorSpell(this);
+		wizard.gainHealth(lifeLeech.getLifeLeech());
 	}
 }

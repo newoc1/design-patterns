@@ -47,8 +47,8 @@ public class MajorSpellBuilder implements SpellBuilder {
 
 	}
 
-	@Override
-	public MajorSpell endIncantation() {
+
+	public MajorSpell castMajorSpell() {
 		System.out.println();
 		MajorSpell majorSpell;
 		if(fire > AncientVolcano.FIRE_VALUE && earth > AncientVolcano.EARTH_VALUE && air > AncientVolcano.AIR_VALUE && water == AncientVolcano.WATER_VALUE){

@@ -27,10 +27,9 @@ public class WizardBattle {
 		Random rand = new Random();
 		String message = "";
 		while (wizard.getHealth() > 0 && enemiesToKill > 0) {
-			Integer randInt = rand.nextInt(2);
-			SpellBuilder spellBuilder = chooseSpellBuilder(randInt);
+			
 			for (Enemy enemy : enemies) {
-				wizard.hitEnemyWithSpell(enemy, spellBuilder);
+					wizard.castSpells(enemy);
 				if (rand.nextInt(6) > 3) {
 					enemy.hitWizardWithWeapon(wizard);
 				} else {
@@ -50,15 +49,5 @@ public class WizardBattle {
 		}
 		System.out.println(message);
 
-	}
-
-	public static SpellBuilder chooseSpellBuilder(int choice) {
-		SpellBuilder spellBuilder;
-		if (choice == 0) {
-			spellBuilder = new MinorSpellBuilder();
-		} else {
-			spellBuilder = new MajorSpellBuilder();
-		}
-		return spellBuilder;
 	}
 }

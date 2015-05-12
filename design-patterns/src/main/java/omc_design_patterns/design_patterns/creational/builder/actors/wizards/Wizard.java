@@ -9,7 +9,9 @@ import omc_design_patterns.design_patterns.creational.builder.arcane_arts.spells
 
 public interface Wizard extends Actor {
 	
-	void hitEnemyWithSpell(Enemy enemy, SpellBuilder spellBuilder);
+	void castSpells(Enemy enemy);
 	
 	void gainHealth(int health);
+	
+	<T extends SpellBuilder> T buildSpell(T spellBuilder);
 }
