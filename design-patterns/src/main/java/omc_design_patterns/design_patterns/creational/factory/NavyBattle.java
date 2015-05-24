@@ -21,6 +21,7 @@ public class NavyBattle {
 		}
 		//Team 1
 		List<Ship> team1 = new ArrayList<>();
+		//Team2
 		List<Ship> team2 = new ArrayList<>();
 		List<List<Ship>> teams = new ArrayList<>();
 		teams.add(team1);
