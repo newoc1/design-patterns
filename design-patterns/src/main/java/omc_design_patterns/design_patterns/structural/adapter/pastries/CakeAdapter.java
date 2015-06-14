@@ -13,5 +13,4 @@ public class CakeAdapter implements Pastry{
 		}
 		return healthRestored;
 	}
-
 }
