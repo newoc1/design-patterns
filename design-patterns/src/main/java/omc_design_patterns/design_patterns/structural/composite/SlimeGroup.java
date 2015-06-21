@@ -26,11 +26,9 @@ public class SlimeGroup extends AbstractSlime {
 
 	@Override
 	public void devour(AbstractSlime slime) {
-
 			for (AbstractSlime mySlime : slimes) {
 				mySlime.devour(slime);
 			}
-			
 	}
 
 	@Override

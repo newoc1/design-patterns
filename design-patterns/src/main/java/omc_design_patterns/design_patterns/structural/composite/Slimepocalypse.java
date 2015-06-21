@@ -31,7 +31,7 @@ public class Slimepocalypse {
 		group3.add(green3);
 		
 		group1.devour(group3);
-		group1.split().size();
+		group1.split();
 		System.out.println("group1 has : "+group1.getSlimes().size());
 		
 		SlimeGroup group4 = new SlimeGroup();
@@ -44,7 +44,7 @@ public class Slimepocalypse {
 		
 		group4.devour(group1);
 		
-		group4.split().size();
+		group4.split();
 		System.out.println("group4 has : "+group4.getSlimes().size());
 	}
 
