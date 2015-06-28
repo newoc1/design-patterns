@@ -10,19 +10,17 @@ public class SpikeEvolution implements Alien {
 	@Override
 	public void attack(SpaceMarine spaceMarine) {
 		System.out.println("Alien shot spikes at the marine for: "+spikeAttackPower+" damage");
-		spaceMarine.handleDamage(spikeAttackPower);
-		
+		spaceMarine.handleDamage(spikeAttackPower);	
 	}
 
 	@Override
 	public void defend() {
 		alien.defend();
-		
 	}
 
 	@Override
 	public void run() {
-		alien.defend();
+		alien.run();
 	}
 	@Override
 	public void handleDamage(int damage) {
