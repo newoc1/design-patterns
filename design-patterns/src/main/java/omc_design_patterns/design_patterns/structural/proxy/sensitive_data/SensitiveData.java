@@ -1,4 +1,4 @@
-package omc_design_patterns.design_patterns.structural.proxy;
+package omc_design_patterns.design_patterns.structural.proxy.sensitive_data;
 
 public class SensitiveData {
 	private String clientId;

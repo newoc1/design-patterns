@@ -1,4 +1,6 @@
-package omc_design_patterns.design_patterns.structural.proxy;
+package omc_design_patterns.design_patterns.structural.proxy.sensitive_data;
+
+import omc_design_patterns.design_patterns.structural.proxy.Client;
 
 public class ProtectionProxy {
 	private SensitiveData sensitiveData;

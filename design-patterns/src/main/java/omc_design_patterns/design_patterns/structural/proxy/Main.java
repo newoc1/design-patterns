@@ -2,6 +2,9 @@ package omc_design_patterns.design_patterns.structural.proxy;
 
 import java.util.Random;
 
+import omc_design_patterns.design_patterns.structural.proxy.sensitive_data.ProtectionProxy;
+import omc_design_patterns.design_patterns.structural.proxy.sensitive_data.SensitiveData;
+
 public class Main {
 
 	public static void main(String[] args){
