@@ -14,10 +14,10 @@ public class Main {
 		Citizen constructionWorker = new CitizenImpl(Skill.CONSTRUCTION);
 		
 		HeadQuarters HQ = HeadQuartersCreator.establishHQ();
+		
 		soldier.requestOrderFromHQ(HQ);
 		soldier.executeOrder();
 		constructionWorker.requestOrderFromHQ(HQ);
 		constructionWorker.executeOrder();
-		
 	}
 }

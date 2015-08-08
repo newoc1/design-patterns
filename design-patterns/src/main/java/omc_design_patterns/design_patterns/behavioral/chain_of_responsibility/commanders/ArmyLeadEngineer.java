@@ -11,6 +11,7 @@ public class ArmyLeadEngineer implements Commander {
 	public ArmyLeadEngineer(Commander commander){
 		this.commander = commander;
 	}
+	
 	@Override
 	public Order giveCommand(RequestOrder requestOrder) {
 		Order order;
@@ -25,5 +26,4 @@ public class ArmyLeadEngineer implements Commander {
 		}
 		return order;
 	}
-
 }
