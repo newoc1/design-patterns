@@ -17,5 +17,4 @@ public class ExerciseCommand implements PetCommand {
 		dog.play(dogToy);
 		dog.walk();
 	}
-
 }
