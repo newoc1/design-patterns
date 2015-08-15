@@ -19,5 +19,4 @@ public class MoveRepeatCommand extends NonterminalRobotCommand {
 		}
 		
 	}
-
 }
