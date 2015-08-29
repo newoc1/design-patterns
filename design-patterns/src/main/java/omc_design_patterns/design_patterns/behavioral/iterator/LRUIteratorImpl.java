@@ -10,14 +10,13 @@ import java.util.List;
 public class LRUIteratorImpl implements LRUIterator {
 	private Deque<LRUItem> items;
 	private int highestLevel;
-
 	private LRUItem candidateNextItem;
 	
 	public LRUIteratorImpl(List<LRUItem> items){
 		this.items = new ArrayDeque<>(items);
 		highestLevel = 0;
-
 	}
+	
 	@Override
 	public LRUIterator next() {
 		highestLevel = 0;
@@ -45,5 +44,4 @@ public class LRUIteratorImpl implements LRUIterator {
 		candidateNextItem.decrementLevel();
 		return item;
 	}
-
 }

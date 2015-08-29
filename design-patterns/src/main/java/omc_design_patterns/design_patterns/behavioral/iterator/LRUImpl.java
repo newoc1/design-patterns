@@ -15,6 +15,4 @@ public class LRUImpl implements LRU {
 	public LRUIterator getIterator() {
 		return iterator;
 	}
-
-	
 }
