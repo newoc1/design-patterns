@@ -14,18 +14,18 @@ public class Arrow {
 		this.nocked = false;
 	}
 
+	public void loose(int force, int changeInTime, Vector normalizedPositionOfTarget){
+		loosed = true;
+		initialVelocity = (force * changeInTime)/mass;
+		this.distance = Math.sqrt(Math.pow(normalizedPositionOfTarget.getX(),2)+Math.pow(normalizedPositionOfTarget.getY(),2)+Math.pow(normalizedPositionOfTarget.getZ(),2));
+	}
+	
 	public Mediator getMediator() {
 		return mediator;
 	}
 
 	public void setMediator(Mediator mediator) {
 		this.mediator = mediator;
-	}
-	
-	public void loose(int force, int changeInTime, Vector normalizedPositionOfTarget){
-		loosed = true;
-		initialVelocity = (force * changeInTime)/mass;
-		this.distance = Math.sqrt(Math.pow(normalizedPositionOfTarget.getX(),2)+Math.pow(normalizedPositionOfTarget.getY(),2)+Math.pow(normalizedPositionOfTarget.getZ(),2));
 	}
 
 	public boolean isLoosed() {

@@ -13,18 +13,6 @@ public class Bow {
 		this.drawLength = drawLength;
 		this.setSnappiness(snappiness);
 	}
-	public Mediator getMediator() {
-		return mediator;
-	}
-
-	public void setMediator(Mediator mediator) {
-		this.mediator = mediator;
-	}
-	
-	public void nockAndDraw(Arrow arrow){
-		drawn = true;
-		arrow.setNocked(true);
-	}
 	
 	public int loose(){
 		int drawWeight = 0;
@@ -36,6 +24,20 @@ public class Bow {
 		}
 		return drawWeight;
 	}
+	
+	public void nockAndDraw(Arrow arrow){
+		drawn = true;
+		arrow.setNocked(true);
+	}
+	
+	public Mediator getMediator() {
+		return mediator;
+	}
+
+	public void setMediator(Mediator mediator) {
+		this.mediator = mediator;
+	}
+
 	public int getDrawLength() {
 		return drawLength;
 	}
