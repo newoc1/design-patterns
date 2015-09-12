@@ -48,7 +48,6 @@ public class TouchSense implements Subject{
 			dangerLevel = dangerZone.getDangerLevel();
 			notifyObservers();
 		}
-		
 	}
 
 	@Override
