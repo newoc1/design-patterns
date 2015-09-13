@@ -19,6 +19,5 @@ public class ColorfulBlobImpl implements ColorfulBlob {
 	@Override
 	public void changeState(ColorfulBlobState colorfulBlobState) {
 		this.colorfulBlobState = colorfulBlobState;
-		
 	}
 }

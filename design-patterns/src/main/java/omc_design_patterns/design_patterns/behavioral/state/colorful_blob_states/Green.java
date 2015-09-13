@@ -11,5 +11,4 @@ public class Green implements ColorfulBlobState {
 		colorfulBlob.changeState(new Yellow());
 	}
 
-
 }
